@@ -1,0 +1,105 @@
+{
+  "general": {
+    "name": { "en": "defacing" },
+    "version": "1.0.0",
+    "vendor": "neurodesk",
+    "information": { "en": "Defacing pipeline." },
+    "id": "defacing",
+    "regulatory_information": {
+      "device_trade_name":"defacing",
+      "production_identifier":"1.0.0",
+      "manufacturer_address":"Erlangen, Germany",
+      "made_in":"DE",
+      "manufacture_date":"2023/02/14",
+      "material_number":"defacing_2.0.0",
+      "gtin":"00860000171212",
+      "udi":"(01)00860000171212(21)1.3.0",
+      "safety_advices":"",
+      "special_operating_instructions":"Open Recon Defacing pipeline",
+      "additional_relevant_information":""
+    }
+  },
+  "reconstruction": {
+    "transfer_protocol": {
+      "protocol": "ISMRMRD",
+      "version": "1.4.1"
+    },
+    "port": 9002,
+    "emitter": "image",
+    "injector": "image",
+    "can_process_adjustment_data": false,
+    "can_use_gpu": false,
+    "min_count_required_gpus": 0,
+    "min_required_gpu_memory": 2048,
+    "min_required_memory": 4096,
+    "min_count_required_cpu_cores": 1,
+    "content_qualification_type": "PRODUCT"
+  },
+  "parameters": [
+    {
+      "id": "config",
+      "label": { "en": "config" },
+      "type": "choice",
+      "values": [
+        {
+          "id": "invertcontrast",
+          "name": { "en": "invertcontrast" }
+        },
+        {
+          "id": "rgb",
+          "name": { "en": "rgb" }
+        },
+        {
+          "id": "simplefft",
+          "name": { "en": "simplefft" }
+        }
+      ],
+      "default": "invertcontrast",
+      "information": { "en": "Define the config to be executed by MRD server" }
+    },
+    {
+      "id": "customconfig",
+      "label": { "en":"Custom Config" },
+      "type": "string",
+      "default": "",
+      "information": { "en": "Custom config file not listed in drop-down menu" }
+    },
+    {
+      "id": "options",
+      "label": { "en": "options" },
+      "type": "choice",
+      "values": [
+        {
+          "id": "none",
+          "name": { "en": "none" }
+        },
+        {
+          "id": "roi",
+          "name": { "en": "roi" }
+        },
+        {
+          "id": "colormap",
+          "name": { "en": "colormap" }
+        }
+      ],
+      "default": "none",
+      "information": { "en": "Define additional options" }
+    },
+    {
+      "id": "double",
+      "label": { "en": "double" },
+      "type": "double",
+      "minimum": 0,
+      "maximum": 100,
+      "default": 1.0,
+      "information": { "en": "A double parameter" }
+    },
+    {
+      "id": "freetext",
+      "label": { "en":"freetext" },
+      "type": "string",
+      "default": "",
+      "information": { "en": "Free text data" }
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+name: build-apps
+
+on:
+  workflow_call:
+    inputs:
+      applications:
+        required: true
+        type: string
+      runner:
+        required: true
+        type: string
+
+env:
+  RCLONE_CONFIG: ${{ secrets.RCLONE_CONFIG }}
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        application: ${{ fromJSON(inputs.applications) }}
+    outputs:
+      BUILDDATE: ${{ steps.ENVVARS.outputs.BUILDDATE }}
+      IMAGENAME: ${{ steps.IMAGEVARS.outputs.IMAGENAME }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set environment variables
+        id: ENVVARS
+        run: |
+          APPLICATION=${{ matrix.application }}
+          BUILDDATE=`date +%Y%m%d`
+          echo "APPLICATION=$APPLICATION" >> $GITHUB_ENV
+          echo "BUILDDATE=$BUILDDATE" >> $GITHUB_ENV
+      - name: Build recipes
+        run: |
+          echo "APPLICATION: $APPLICATION"
+          cd recipes/$APPLICATION
+          echo `which python`
+          /bin/bash build.sh
+      - name: Setup rclone
+        run: |
+          mkdir -p ~/.config/rclone
+          echo "$RCLONE_CONFIG" > ~/.config/rclone/rclone.conf
+      - name: Set image variables
+        id: IMAGEVARS
+        run: |
+          DOCKERFILE=`basename $(find ./recipes/$APPLICATION/ -type f -iname "*.zip" | head -1)`
+          IMAGENAME=$(echo $(basename $DOCKERFILE .zip) | tr '[A-Z]' '[a-z]')
+          echo "IMAGENAME: $IMAGENAME"
+          echo "IMAGENAME_TEST=${IMAGENAME//_/ }" >> $GITHUB_ENV
+          echo "IMAGENAME=$IMAGENAME" >> $GITHUB_ENV
+      - name : Upload file
+        run: /bin/bash .github/workflows/upload-zip.sh $IMAGENAME
