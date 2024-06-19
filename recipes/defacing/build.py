@@ -70,7 +70,7 @@ if not os.path.isfile(docsFile):
     raise Exception('Could not find documentation file: ' + docsFile)
 
 # Check 7-zip exists
-zipExe = '7zz'
+zipExe = '7z'
 
 if not os.path.isfile(zipExe):
     raise Exception('Could not find 7-Zip executable: ' + docsFile + '\nPlease download and install 7-Zip')
