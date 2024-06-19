@@ -54,8 +54,6 @@ if validateJson(jsonFilePath, schemaFilePath):
 else:
     raise Exception('Not writing Dockerfile because JSON is not valid')
 
-
-
 # Build Docker image, save to a .tar file, and package into a .zip file for OpenRecon
 # The documentation must be a valid PDF!
 docsFile = 'docs.pdf'
