@@ -1,3 +1,6 @@
+#!/bin/bash
+set -e
+
 pip3 install jsonschema
 pip3 install packaging
 
