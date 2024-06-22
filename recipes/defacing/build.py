@@ -1,6 +1,6 @@
 # Validate JSON file against OpenRecon schema and write Dockerfile
 jsonFilePath    = 'OpenReconLabel.json'
-schemaFilePath  = 'OpenReconSchema_1.1.0.json'
+schemaFilePath  = '../OpenReconSchema_1.1.0.json'
 dockerfilePath  = 'OpenRecon.dockerfile'
 baseDockerImage = 'stebo85/niimath-test'
 
@@ -68,10 +68,10 @@ if not os.path.isfile(docsFile):
     raise Exception('Could not find documentation file: ' + docsFile)
 
 # Check 7-zip exists
-zipExe = '7z'
+zipExe = '/usr/bin/7z'
 
 if not os.path.isfile(zipExe):
-    raise Exception('Could not find 7-Zip executable: ' + docsFile + '\nPlease download and install 7-Zip')
+    raise Exception('Could not find 7-Zip executable: ' + zipExe + '\nPlease download and install 7-Zip')
 
 dockerImagename = ('OpenRecon_' + vendor + '_' + name + ':' +  'V' + version).lower()
 baseFilename    =  'OpenRecon_' + vendor + '_' + name +       '_V' + version

@@ -37,11 +37,13 @@ jobs:
           echo "APPLICATION: $APPLICATION"
           cd recipes/$APPLICATION
           echo `which python`
-          /bin/bash build.sh
+          /bin/bash ../build.sh
       - name: Setup rclone
         run: |
           mkdir -p ~/.config/rclone
-          echo "$RCLONE_CONFIG" > ~/.config/rclone/rclone.conf
+          if [ ! -f ~/.config/rclone/rclone.conf ]; then
+            echo "$RCLONE_CONFIG" > ~/.config/rclone/rclone.conf
+          fi
       - name: Set image variables
         id: IMAGEVARS
         run: |
@@ -50,5 +52,5 @@ jobs:
           echo "IMAGENAME: $IMAGENAME"
           echo "IMAGENAME_TEST=${IMAGENAME//_/ }" >> $GITHUB_ENV
           echo "IMAGENAME=$IMAGENAME" >> $GITHUB_ENV
-      - name : Upload file
+      - name : Upload zip file
         run: /bin/bash .github/workflows/upload-zip.sh $IMAGENAME
