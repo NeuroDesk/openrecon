@@ -104,7 +104,7 @@ try:
     print('Zip packaging output:\n' + output.decode('utf-8'))
 
     print('Moving file to archive storage:', baseFilename + '.zip', '...')
-    output = subprocess.check_output(['mv', baseFilename + '.zip', '/storage/openrecon/', baseFilename + '.zip'], stderr=subprocess.STDOUT)
+    output = subprocess.check_output(['mv', baseFilename + '.zip', '/storage/openrecon/' + baseFilename + '.zip'], stderr=subprocess.STDOUT)
     print('moved file to /storage/openrecon')
 
 

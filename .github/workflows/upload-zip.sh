@@ -7,6 +7,7 @@ cd recipes/$APPLICATION
 IMAGENAME=$1
 IMAGE_HOME=/storage/openrecon
 
+echo "[DEBUG] IMAGE_HOME: $IMAGE_HOME"
 echo "[DEBUG] IMAGENAME: $IMAGENAME"
 
 ls -la $IMAGE_HOME/$IMAGENAME.zip
