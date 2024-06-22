@@ -6,6 +6,10 @@ cd recipes/$APPLICATION
 
 IMAGENAME=$1
 
+echo "[DEBUG] IMAGENAME: $IMAGENAME"
+
+ls -la $IMAGENAME.zip
+
 IMAGE_HOME=/storage/openrecon
 
 #This prevents the sometimes stuck apt process from stopping the build
