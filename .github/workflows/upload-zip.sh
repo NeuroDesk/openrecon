@@ -5,12 +5,12 @@ echo "[DEBUG] recipes/$APPLICATION"
 cd recipes/$APPLICATION
 
 IMAGENAME=$1
+IMAGE_HOME=/storage/openrecon
 
 echo "[DEBUG] IMAGENAME: $IMAGENAME"
 
-ls -la $IMAGENAME.zip
+ls -la $IMAGE_HOME/$IMAGENAME.zip
 
-IMAGE_HOME=/storage/openrecon
 
 #This prevents the sometimes stuck apt process from stopping the build
 if [ -f "/var/lib/apt/lists/lock" ]; then
