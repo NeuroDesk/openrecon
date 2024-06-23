@@ -15,7 +15,8 @@ if ! command -v 7z &> /dev/null; then
 fi
 
 if ! command -v mdpdf &> /dev/null; then
-    source ~/.bashrc
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     
     if ! command -v mdpdf &> /dev/null; then
         curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
