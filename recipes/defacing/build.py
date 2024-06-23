@@ -4,8 +4,6 @@ schemaFilePath  = '../OpenReconSchema_1.1.0.json'
 dockerfilePath  = 'OpenRecon.dockerfile'
 baseDockerImage = 'stebo85/niimath-test'
 
-
-
 import json
 import jsonschema
 import base64
