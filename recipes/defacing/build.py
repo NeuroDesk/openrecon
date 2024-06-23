@@ -103,8 +103,6 @@ try:
     output = subprocess.check_output([zipExe, 'a', '-tzip', '-mm=Deflate', baseFilename + '.zip', baseFilename + '.tar', baseFilename + '.pdf'], stderr=subprocess.STDOUT)
     print('Zip packaging output:\n' + output.decode('utf-8'))
 
-
-
 except subprocess.CalledProcessError as e:
     # If the command returns a non-zero exit status, it will raise a CalledProcessError
     print('Command failed with return code:', e.returncode)
