@@ -47,11 +47,11 @@ jobs:
       - name: Set image variables
         id: IMAGEVARS
         run: |
+          echo "finding zip file for $APPLICATION:"
           DOCKERFILE=`$(find ./recipes/$APPLICATION/ -type f -iname "*.zip" | head -1)`
           echo "DOCKERFILE: $DOCKERFILE"
           IMAGENAME=$(echo $(basename $DOCKERFILE .zip))
           echo "IMAGENAME: $IMAGENAME"
-          echo "IMAGENAME_TEST=${IMAGENAME//_/ }" >> $GITHUB_ENV
           echo "IMAGENAME=$IMAGENAME" >> $GITHUB_ENV
       - name : Upload zip file
         run: /bin/bash .github/workflows/upload-zip.sh $IMAGENAME

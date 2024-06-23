@@ -103,6 +103,9 @@ try:
     output = subprocess.check_output([zipExe, 'a', '-tzip', '-mm=Deflate', baseFilename + '.zip', baseFilename + '.tar', baseFilename + '.pdf'], stderr=subprocess.STDOUT)
     print('Zip packaging output:\n' + output.decode('utf-8'))
 
+    # print('Cleaning up:', baseFilename + '.tar', '...')
+    # output = subprocess.check_output(['rm', baseFilename + '.tar'], stderr=subprocess.STDOUT)
+
     # print('Moving file to archive storage:', baseFilename + '.zip', '...')
     # output = subprocess.check_output(['mv', baseFilename + '.zip', '/storage/openrecon/' + baseFilename + '.zip'], stderr=subprocess.STDOUT)
     # print('moved file to /storage/openrecon')
