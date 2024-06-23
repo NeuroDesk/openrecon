@@ -67,12 +67,6 @@ name    = jsonData['general']['name']['en']
 if not os.path.isfile(docsFile):
     raise Exception('Could not find documentation file: ' + docsFile)
 
-# Check 7-zip exists
-zipExe = '/usr/bin/7z'
-
-if not os.path.isfile(zipExe):
-    raise Exception('Could not find 7-Zip executable: ' + zipExe + '\nPlease download and install 7-Zip')
-
 dockerImagename = ('OpenRecon_' + vendor + '_' + name + ':' +  'V' + version).lower()
 baseFilename    =  'OpenRecon_' + vendor + '_' + name +       '_V' + version
 
