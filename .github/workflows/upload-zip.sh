@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-echo "[DEBUG] recipes/$APPLICATION"
-cd recipes/$APPLICATION
-
 ZIPFILE=$1
 IMAGENAME=$(echo $(basename $ZIPFILE .zip))
 
