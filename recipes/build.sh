@@ -14,8 +14,15 @@ if ! command -v 7z &> /dev/null; then
     sudo apt install p7zip
 fi
 
+if ! command -v pandoc &> /dev/null; then
+    sudo apt install pandoc
+fi
+
 # check docker version
 python ../checkDockerVersion.py
+
+# build pdf file
+pandoc --from=gfm --to=pdf -o README.pdf README.md
 
 # build zip file
 python build.py

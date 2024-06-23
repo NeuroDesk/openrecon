@@ -56,7 +56,7 @@ else:
 
 # Build Docker image, save to a .tar file, and package into a .zip file for OpenRecon
 # The documentation must be a valid PDF!
-docsFile = 'docs.pdf'
+docsFile = 'README.pdf'
 
 # Filename must match information contained in the JSON
 version = jsonData['general']['version']
