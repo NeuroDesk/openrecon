@@ -6,9 +6,6 @@ on:
       applications:
         required: true
         type: string
-      runner:
-        required: true
-        type: string
 
 env:
   RCLONE_CONFIG: ${{ secrets.RCLONE_CONFIG }}
@@ -48,10 +45,10 @@ jobs:
         id: IMAGEVARS
         run: |
           echo "finding zip file for $APPLICATION:"
-          DOCKERFILE=`$(find ./recipes/$APPLICATION/ -type f -iname "*.zip" | head -1)`
-          echo "DOCKERFILE: $DOCKERFILE"
-          IMAGENAME=$(echo $(basename $DOCKERFILE .zip))
+          ZIPFILE=`find ./recipes/$APPLICATION -type f -iname "OpenRecon_*_$APPLICATION_*.zip" | head -1`
+          echo "ZIPFILE: $ZIPFILE"
+          IMAGENAME=$(echo $(basename $ZIPFILE .zip))
           echo "IMAGENAME: $IMAGENAME"
           echo "IMAGENAME=$IMAGENAME" >> $GITHUB_ENV
       - name : Upload zip file
-        run: /bin/bash .github/workflows/upload-zip.sh $IMAGENAME
+        run: /bin/bash .github/workflows/upload-zip.sh $ZIPFILE
