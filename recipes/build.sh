@@ -14,14 +14,18 @@ if ! command -v 7z &> /dev/null; then
     sudo apt install -y p7zip
 fi
 
-# if ! command -v mdpdf &> /dev/null; then
-#     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-#     source ~/.bashrc
-#     nvm list-remote
-#     nvm install v22.3.0
-#     nvm list
-#     npm install mdpdf -g
-# fi
+if ! command -v mdpdf &> /dev/null; then
+    source ~/.bashrc
+    
+    if ! command -v mdpdf &> /dev/null; then
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+        source ~/.bashrc
+        nvm list-remote
+        nvm install v22.3.0
+        nvm list
+        npm install mdpdf -g
+    fi
+fi
 
 # check docker version
 python ../checkDockerVersion.py
