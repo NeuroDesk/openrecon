@@ -7,9 +7,6 @@ on:
         required: true
         type: string
 
-env:
-  RCLONE_CONFIG: ${{ secrets.RCLONE_CONFIG }}
-
 jobs:
   build:
     runs-on: self-hosted
@@ -35,12 +32,6 @@ jobs:
           cd recipes/$APPLICATION
           echo `which python`
           /bin/bash ../build.sh
-      - name: Setup rclone
-        run: |
-          mkdir -p ~/.config/rclone
-          if [ ! -f ~/.config/rclone/rclone.conf ]; then
-            echo "$RCLONE_CONFIG" > ~/.config/rclone/rclone.conf
-          fi
       - name: Set image variables
         id: IMAGEVARS
         run: |
