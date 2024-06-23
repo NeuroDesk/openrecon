@@ -16,6 +16,9 @@ if [ -f "/var/lib/apt/lists/lock" ]; then
   sudo rm /var/lib/dpkg/lock*
 fi
 
+echo "[DEBUG] checking rclone config ..."
+cat ~/.config/rclone/rclone.conf
+
 echo "[DEBUG] Attempting upload to AWS Object Storage ..."
 rclone copy --progress $ZIPFILE aws-neurocontainers:/openrecon
 
