@@ -49,6 +49,6 @@ jobs:
           echo "ZIPFILE: $ZIPFILE"
           IMAGENAME=$(echo $(basename $ZIPFILE .zip))
           echo "IMAGENAME: $IMAGENAME"
-          echo "IMAGENAME=$IMAGENAME" >> $GITHUB_ENV
+          echo "ZIPFILE=$ZIPFILE" >> $GITHUB_ENV
       - name : Upload zip file
         run: /bin/bash .github/workflows/upload-zip.sh $ZIPFILE
