@@ -11,11 +11,11 @@ if ! pip3 show packaging &> /dev/null; then
 fi
 
 if ! command -v 7z &> /dev/null; then
-    sudo apt install p7zip
+    sudo apt install -y p7zip
 fi
 
 if ! command -v pandoc &> /dev/null; then
-    sudo apt install pandoc
+    sudo apt install -y pandoc
 fi
 
 # check docker version
