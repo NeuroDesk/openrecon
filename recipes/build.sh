@@ -40,10 +40,10 @@ if ! command -v mdpdf &> /dev/null; then
 fi
 
 # check docker version
-python ../checkDockerVersion.py
+python3 ../checkDockerVersion.py
 
 # build pdf file from README.md
 mdpdf README.md
 
 # build zip file
-python build.py
+python3 build.py
