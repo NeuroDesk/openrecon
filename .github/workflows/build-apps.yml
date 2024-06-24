@@ -41,6 +41,7 @@ jobs:
           IMAGENAME=$(echo $(basename $ZIPFILE .zip))
           echo "IMAGENAME: $IMAGENAME"
           echo "ZIPFILE=$ZIPFILE" >> $GITHUB_ENV
+          echo "IMAGENAME=$IMAGENAME" >> $GITHUB_ENV
       - name : Upload zip file
         run: /bin/bash .github/workflows/upload-zip.sh $ZIPFILE
       - name: Generate job output
@@ -48,4 +49,5 @@ jobs:
           echo "The container has been successfully build. To test the container, download and copy to host:" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
           echo "curl -O https://openrecon.neurodesk.org/${IMAGENAME}.zip" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
           echo "#now copy to C:\Program Files\Siemens\Numaris\OperationalManagement\FileTransfer\incoming" >> $GITHUB_STEP_SUMMARY
