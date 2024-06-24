@@ -22,7 +22,7 @@ cat ~/.config/rclone/rclone.conf
 echo "[DEBUG] Attempting upload to AWS Object Storage ..."
 rclone copy --progress $ZIPFILE aws-neurocontainers:/openrecon
 
-if curl --output /dev/null --silent --head --fail "https://openrecon.neurodeks.org/${IMAGENAME}.zip"; then
+if curl --output /dev/null --silent --head --fail "https://d3qlm0hpf5by6j.cloudfront.net/${IMAGENAME}.zip"; then
     echo "[DEBUG] ${IMAGENAME}.zip was freshly build and exists now :)"
     echo "[DEBUG] cleaning up $ZIPFILE and ${ZIPFILE%.zip}.tar "
     rm $ZIPFILE
