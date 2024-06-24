@@ -48,3 +48,4 @@ jobs:
           echo "The container has been successfully build. To test the container, download and copy to host:" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
           echo "curl -O https://d3qlm0hpf5by6j.cloudfront.net/${IMAGENAME}.zip" >> $GITHUB_STEP_SUMMARY
+          echo "#now copy to C:\Program Files\Siemens\Numaris\OperationalManagement\FileTransfer\incoming" >> $GITHUB_STEP_SUMMARY
