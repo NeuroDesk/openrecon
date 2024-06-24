@@ -19,6 +19,7 @@ fi
 
 if ! command -v 7z &> /dev/null; then
     sudo apt install -y p7zip
+    sudo apt install -y p7zip-full
 fi
 
 if ! command -v mdpdf &> /dev/null; then
