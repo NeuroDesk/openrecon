@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
-
-
+#This script will run inside the tool directory
 
 # check and install dependencies
 if ! command -v pip3 &> /dev/null; then
@@ -43,5 +42,12 @@ python3 ../checkDockerVersion.py
 # build pdf file from README.md
 mdpdf README.md
 
+# source tool-specific parameters
+source params.sh
+
+current_dir=$(pwd)
+export toolName=$(basename "$current_dir")
+
 # build zip file
+cd ..
 python3 build.py
