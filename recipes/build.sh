@@ -48,4 +48,4 @@ source params.sh
 echo "baseDockerImage: $baseDockerImage"
 
 # build zip file
-python3 build.py
+python3 ../build.py
