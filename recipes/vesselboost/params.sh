@@ -1,2 +1,2 @@
-export baseImage=vnmd/vesselboost_1.0.1
+export baseDockerImage=vnmd/vesselboost_1.0.1
 

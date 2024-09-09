@@ -45,8 +45,13 @@ mdpdf README.md
 # source tool-specific parameters
 source params.sh
 
+echo "baseDockerImage: $baseDockerImage"
+
 current_dir=$(pwd)
 export toolName=$(basename "$current_dir")
+
+echo "toolName: $toolName"
+
 
 # build zip file
 cd ..
