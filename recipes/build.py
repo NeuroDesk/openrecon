@@ -52,6 +52,8 @@ if validateJson(jsonFilePath, schemaFilePath):
 
         file.writelines('FROM ' + baseDockerImage)
         file.writelines('\n' + labelStr)
+        file.writelines('\n')
+        file.writelines('CMD [ "python3", "/opt/code/python-ismrmrd-server/main.py", "-v", "-r", "-H=0.0.0.0", "-p=9002", "-l=/tmp/python-ismrmrd-server.log", "-s", "-S=/tmp/share/saved_data"]')
     print('Wrote Dockerfile:', os.path.abspath(dockerfilePath))
 else:
     raise Exception('Not writing Dockerfile because JSON is not valid')

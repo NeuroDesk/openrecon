@@ -66,12 +66,12 @@
           "name": { "en": "none" }
         },
         {
-          "id": "roi",
-          "name": { "en": "roi" }
+          "id": "tta",
+          "name": { "en": "tta" }
         },
         {
-          "id": "colormap",
-          "name": { "en": "colormap" }
+          "id": "booster",
+          "name": { "en": "booster" }
         }
       ],
       "default": "none",
