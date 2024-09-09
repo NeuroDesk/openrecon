@@ -47,12 +47,5 @@ source params.sh
 
 echo "baseDockerImage: $baseDockerImage"
 
-current_dir=$(pwd)
-export toolName=$(basename "$current_dir")
-
-echo "toolName: $toolName"
-
-
 # build zip file
-cd ..
 python3 build.py
