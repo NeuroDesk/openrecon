@@ -8,7 +8,7 @@ import os
 # Validate JSON file against OpenRecon schema and write Dockerfile
 jsonFilePath    = 'OpenReconLabel.json'
 schemaFilePath  = '../OpenReconSchema_1.1.0.json'
-dockerfilePath  = '/OpenRecon.dockerfile'
+dockerfilePath  = 'OpenRecon.dockerfile'
 baseDockerImage = os.getenv('baseDockerImage')
 
 def validateJson(jsonFilePath, schemaFilePath):
