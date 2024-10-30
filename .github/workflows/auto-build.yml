@@ -9,7 +9,7 @@ on:
 
 jobs:
   list-apps:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     if: ${{ !contains(github.event.head_commit.message, 'skipci') }}
     outputs:
       app_list: ${{ steps.find_changed_recipes.outputs.app_list }}
