@@ -1,1 +1,1 @@
-Readme will be converted to PDF
+This pipeline will run a defacing algorithm consisting of Synthstrip and Quickshear

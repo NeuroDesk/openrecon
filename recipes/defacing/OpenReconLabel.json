@@ -1,13 +1,13 @@
 {
   "general": {
     "name": { "en": "defacing" },
-    "version": "1.0.0",
+    "version": "2.0.0",
     "vendor": "neurodesk",
-    "information": { "en": "Defacing pipeline." },
+    "information": { "en": "Defacing pipeline with synthstrip and quickshear." },
     "id": "defacing",
     "regulatory_information": {
       "device_trade_name":"defacing",
-      "production_identifier":"1.0.0",
+      "production_identifier":"2.0.0",
       "manufacturer_address":"Erlangen, Germany",
       "made_in":"DE",
       "manufacture_date":"2023/02/14",

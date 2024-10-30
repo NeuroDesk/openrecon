@@ -1,1 +1,1 @@
-Vesselboost 1.0.1 will run a deep learning pipeline to segment an MRA TOF and output the segmentation.
+Vesselboost will run a deep learning pipeline to segment an MRA TOF and output the segmentation.
