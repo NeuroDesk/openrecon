@@ -1,5 +1,5 @@
 ---
-title: New container {{ env.ZIPFILE }}
+title: New container {{ env.IMAGENAME }}
 labels: enhancement
 ---
 The container has been successfully build by @{{ env.GITHUB_ACTOR }}. To test the container, download:
