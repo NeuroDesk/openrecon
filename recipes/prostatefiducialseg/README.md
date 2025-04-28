@@ -1,1 +1,1 @@
-prostatefiducialseg will run a deep learning pipeline to segment Gold Fiducial markers and calcifications in the Prostate on a T1 weighted scan.
+prostatefiducialseg will run a deep learning algorithm to segment Gold Fiducial markers and calcifications in the Prostate on a T1 weighted scan.
