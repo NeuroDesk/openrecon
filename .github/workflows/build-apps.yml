@@ -42,6 +42,11 @@ jobs:
           echo "IMAGENAME: $IMAGENAME"
           echo "ZIPFILE=$ZIPFILE" >> $GITHUB_ENV
           echo "IMAGENAME=$IMAGENAME" >> $GITHUB_ENV
+      - name: Configure aws credentials
+        uses: aws-actions/configure-aws-credentials@ececac1a45f3b08a01d2dd070d28d111c5fe6722
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: us-east-2
       - name : Upload zip file
         run: /bin/bash .github/workflows/upload-zip.sh $ZIPFILE
       - name: Generate job output
