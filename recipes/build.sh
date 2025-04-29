@@ -45,6 +45,9 @@ mdpdf README.md
 # source tool-specific parameters
 source params.sh
 
+# replace FILL_IN_VERSION in OpenReconLabel.json with $version
+# sed -i "s/FILL_IN_VERSION/$version/g" OpenReconLabel.json
+
 echo "baseDockerImage: $baseDockerImage"
 
 # build zip file
