@@ -56,4 +56,5 @@ echo "----------------------------------------"
 echo "baseDockerImage: $baseDockerImage"
 
 # build zip file
+echo "Building OpenRecon file..."
 python3 ../build.py
