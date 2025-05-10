@@ -4,8 +4,27 @@ set -e
 
 # check and install dependencies
 if ! command -v pip3 &> /dev/null; then
-    sudo apt update
-    sudo apt install -y python3-pip
+    #check if on MacOS
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        brew install python3
+    fi
+    # check if on Linux
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        # check if apt is available
+        if command -v apt &> /dev/null; then
+            sudo apt update
+            sudo apt install -y python3 python3-pip
+        # check if yum is available
+        elif command -v yum &> /dev/null; then
+            sudo yum install -y python3 python3-pip
+        # check if dnf is available
+        elif command -v dnf &> /dev/null; then
+            sudo dnf install -y python3 python3-pip
+        else
+            echo "Error: No package manager found. Please install Python 3 and pip manually."
+            exit 1
+        fi
+    fi
 fi
 
 if ! pip3 show jsonschema &> /dev/null; then
@@ -17,8 +36,27 @@ if ! pip3 show packaging &> /dev/null; then
 fi
 
 if ! command -v 7z &> /dev/null; then
-    sudo apt install -y p7zip
-    sudo apt install -y p7zip-full
+    # check if on MacOS
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+    brew install p7zip
+    fi
+    # check if on Linux
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        # check if apt is available
+        if command -v apt &> /dev/null; then
+            sudo apt update
+            sudo apt install -y p7zip-full
+        # check if yum is available
+        elif command -v yum &> /dev/null; then
+            sudo yum install -y p7zip-full
+        # check if dnf is available
+        elif command -v dnf &> /dev/null; then
+            sudo dnf install -y p7zip-full
+        else
+            echo "Error: No package manager found. Please install p7zip manually."
+            exit 1
+        fi
+    fi
 fi
 
 if ! command -v mdpdf &> /dev/null; then
@@ -37,16 +75,37 @@ if ! command -v mdpdf &> /dev/null; then
 fi
 
 # check docker version
-python3 ../checkDockerVersion.py
+if ! command -v docker &> /dev/null; then
+    echo "Docker is not installed. Please install Docker."
+    exit 1
+fi
+
+# check for cli flag if it should ignore the docker version:
+if [[ "$1" == "--ignore-docker-version" ]]; then
+    echo "Ignoring docker version check."
+else
+    python3 ../checkDockerVersion.py
+fi
 
 # build pdf file from README.md
-mdpdf README.md
+if [[ "$2" == "--ignore-mdpdf" ]]; then
+    echo "Ignoring mdpdf."
+else
+    mdpdf README.md
+fi
 
 # source tool-specific parameters
 source params.sh
 
 # replace VERSION_WILL_BE_REPLACED_BY_SCRIPT in OpenReconLabel.json with $version
-sed -i "s/VERSION_WILL_BE_REPLACED_BY_SCRIPT/$version/g" OpenReconLabel.json
+# run correct sed command on MacOS
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    sed -i '' "s/VERSION_WILL_BE_REPLACED_BY_SCRIPT/$version/g" OpenReconLabel.json
+fi
+# run correct sed command on Linux
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    sed -i "s/VERSION_WILL_BE_REPLACED_BY_SCRIPT/$version/g" OpenReconLabel.json
+fi
 
 echo "This is the OpenReconLabel.json file:"
 echo "----------------------------------------"
