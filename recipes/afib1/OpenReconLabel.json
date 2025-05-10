@@ -133,7 +133,7 @@
       "label": { "en": "TR Ratio" },
       "type": "double",
       "information": { "en": "Ratio of TR2 to TR1" },
-      "minimum": 0.0,
+      "minimum": 0.1,
       "maximum": 100.0,
       "default": 5.0,
       "unit": { "en": "mm" }
