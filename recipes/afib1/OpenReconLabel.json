@@ -85,7 +85,6 @@
       "label": { "en": "FWHM for mask smoothing" },
       "type": "double",
       "information": { "en": "FWHM in mm to smooth brain mask by" },
-      "unit": { "en": "mm" },
       "minimum": 1.0,
       "maximum": 10.0,
       "default": 5.0
