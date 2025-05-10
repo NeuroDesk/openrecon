@@ -62,98 +62,99 @@
       "type": "choice",
       "values": [
         {
-        "id": "afa",
-        "name": { "en": "Actual Flip Angle" }
+          "id": "afa",
+          "name": { "en": "Actual Flip Angle" }
         },
         {
-        "id": "pu",
-        "name": { "en": "Percent Units" }
+          "id": "pu",
+          "name": { "en": "Percent Units" }
         }
       ],
       "default": "afa",
       "information": { "en": "Choose between flip angle in degrees or B1 map in p.u." }
-      },
-      {
+    },
+    {
       "id": "brainmask",
       "label": { "en": "Brain mask?" },
       "type": "boolean",
       "information": { "en": "Checked will apply a processed bet2 mask" },
       "default": false
-      },
-      {
-      "id": "mask_fwhm",
+    },
+    {
+      "id": "maskfwhm",
       "label": { "en": "FWHM for mask smoothing" },
       "type": "double",
       "information": { "en": "FWHM in mm to smooth brain mask by" },
       "minimum": 1.0,
       "maximum": 10.0,
-      "default": 5.0
-      },
-      {
-      "id": "mask_nerode",
-      "label": { "en": "Mask # erodes" },
+      "default": 5.0,
+      "unit": { "en": "mm" }
+    },
+    {
+      "id": "masknerode",
+      "label": { "en": "Mask erodes" },
       "type": "int",
       "information": { "en": "Number of erosion operations applied to mask" },
       "minimum": 0,
       "maximum": 20,
       "default": 2
-      },
-      {
-      "id": "mask_ndilate",
-      "label": { "en": "Mask # dilates" },
+    },
+    {
+      "id": "maskndilate",
+      "label": { "en": "Mask dilates" },
       "type": "int",
       "information": { "en": "Number of dilation operations applied to mask" },
       "minimum": 0,
       "maximum": 20,
       "default": 4
-      },
-      {
-      "id": "mask_thresh",
+    },
+    {
+      "id": "maskthresh",
       "label": { "en": "Mask threshold" },
       "type": "double",
       "information": { "en": "Threshold applied to brain mask" },
       "minimum": 0.0,
       "maximum": 1.0,
       "default": 0.5
-      },
-      {
-      "id": "signal_thresh",
+    },
+    {
+      "id": "signalthresh",
       "label": { "en": "Signal threshold" },
       "type": "double",
       "information": { "en": "Signal value below which map is invalid" },
-      "unit": { "en": "au" },
       "minimum": 0.1,
       "maximum": 4096.0,
-      "default": 60.0
-      },
-      {
+      "default": 60.0,
+      "unit": { "en": "au" }
+    },
+    {
       "id": "b1fwhm",
       "label": { "en": "FWHM for map smoothing" },
       "type": "double",
       "information": { "en": "FWHM in mm to smooth b1 map by, 0 to disable" },
-      "unit": { "en": "mm" },
       "minimum": 0.0,
       "maximum": 10.0,
-      "default": 8.0
-      },
-      {
-      "id": "tr_ratio",
+      "default": 8.0,
+      "unit": { "en": "mm" }
+    },
+    {
+      "id": "trratio",
       "label": { "en": "TR Ratio" },
       "type": "double",
       "information": { "en": "Ratio of TR2:TR1" },
       "minimum": 0.0001,
       "maximum": 100.0,
       "default": 5.0
-      },
-      {
-      "id": "nominal_fa",
+    },
+    {
+      "id": "nominalfa",
       "label": { "en": "Nominal Flip Angle" },
       "type": "double",
       "information": { "en": "AFI sequence nominal excitation angle (FA)" },
-      "unit": { "en": "deg" },
       "minimum": 1.0,
       "maximum": 180.0,
-      "default": 60.0
-      }
+      "default": 60.0,
+      "unit": { "en": "deg" }
+    }
   ]
 }
